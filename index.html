@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="sq">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BaxhakuING shpk — Vlerësim Aksidentesh & Sinjalizim Rrugor</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand-dark: #2b5876; /* primary from logo */
+      --brand-mid:  #4e7390; /* secondary */
+      --bg: #f5f7fa;
+      --white: #fff;
+    }
+    body{font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#123;}
+    header{background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,0.06);position:sticky;top:0;z-index:1000}
+    .navbar-brand img{height:48px}
+    .lang-btn{min-width:86px}
+    .hero{
+      background: linear-gradient(0deg, rgba(43,88,118,0.82), rgba(43,88,118,0.65)), url('img/background.png');
+      background-size:cover;background-position:center;color:var(--white);
+      padding:100px 0;text-align:left;
+    }
+    .hero h1{font-weight:700;font-size:2.4rem}
+	.hero img {
+	  opacity: 0.7;
+	}
+	#about {
+  padding: 5rem 0;
+  background-color: #f9f9f9; /* ngjyrë neutrale */
+}
+
+#about h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2b5876; /* ngjyrë si logo */
+  margin-bottom: 1rem;
+}
+
+#about p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #555;
+}
+
+#about ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: #333;
+}
+
+#about ul li {
+  margin-bottom: 0.5rem;
+}
+
+#about img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover; /* mbush hapësirën bukur */
+  border-radius: 0.5rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* shadow profesional */
+}
+    .section-card{background:var(--white);border-radius:12px;padding:32px;box-shadow:0 6px 24px rgba(11,22,33,0.06)}
+    .service-icon{font-size:36px;color:var(--brand-dark)}
+    .btn-primary{background:var(--brand-dark);border-color:var(--brand-dark)}
+    footer{background:#0b1b2b;color:#fff;padding:28px 0}
+    .flag-emoji{font-size:18px;margin-right:8px}
+    @media (max-width:767px){ .hero{padding:60px 0}.hero h1{font-size:1.6rem} }
+  </style>
+</head>
+<body>
+
+  <!-- Header / Navbar -->
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light px-4">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+	  <div class="ms-3">
+        <img src="img/baxhakuing.jpg" alt="BaxhakuING logo">
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav me-3">
+          <li class="nav-item"><a class="nav-link" href="#home" data-en="Home" data-sq="Ballina">Ballina</a></li>
+          <li class="nav-item"><a class="nav-link" href="#about" data-en="About" data-sq="Rreth Nesh">Rreth Nesh</a></li>
+          <li class="nav-item"><a class="nav-link" href="#services" data-en="Services" data-sq="Shërbimet">Shërbimet</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-sq="Kontakt">Kontakt</a></li>
+        </ul>
+
+        <!-- Language toggle with flags -->
+        <div class="d-flex align-items-center">
+          <button id="langToggle" class="btn btn-outline-secondary lang-btn d-flex align-items-center" onclick="toggleLang()">
+            <span id="langFlag" class="flag-emoji">🇦🇱</span>
+            <span id="langLabel">SQ</span>
+          </button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-7 text-white">
+          <h1 data-en="Engineering road safety through expertise and precision" data-sq="Inxhinieri e sigurisë rrugore me ekspertizë dhe saktësi">Inxhinieri e sigurisë rrugore me ekspertizë dhe saktësi</h1>
+          <p class="lead mt-3" data-en="We provide professional accident evaluation, road signaling projects, international design services and precise AutoCAD drafting."
+                                       data-sq="Ofrim vlerësim profesional të aksidenteve, projekte sinjalizimi rrugor, shërbime projektimi ndërkombëtar dhe vizatime të sakta në AutoCAD.">
+            Ofrim vlerësim profesional të aksidenteve, projekte sinjalizimi rrugor, shërbime projektimi ndërkombëtar dhe vizatime të sakta në AutoCAD.
+          </p>
+
+          <div class="mt-4">
+            <a href="#contact" class="btn btn-primary btn-lg me-2" data-en="Request a Quote" data-sq="Kërko ofertë">Kërko ofertë</a>
+            <a href="#services" class="btn btn-outline-light btn-lg" data-en="Our Services" data-sq="Shërbimet">Shërbimet</a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 d-none d-lg-block">
+          <!-- optional illustrative image -->
+          <img src="img/expertise.jpg" class="img-fluid rounded shadow" alt="road engineering">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-5">
+    <div class="container section-card">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-6">
+          <h3 data-en="About BaxhakuING" data-sq="Rreth BaxhakuING">Rreth BaxhakuING</h3>
+          <p class="mt-3" data-en="BaxhakuING shpk is a specialized engineering firm focused on traffic engineering, accident investigation and road safety. Our multidisciplinary team combines mechanical engineering skills with traffic analysis to deliver reliable, data-driven solutions."
+                          data-sq="BaxhakuING shpk është një firmë inxhinierike e specializuar në inxhinierinë e komunikacionit, hetimin e aksidenteve dhe sigurinë rrugore. Ekipi ynë multidisiplinar kombinon aftësi të inxhinierisë mekanike me analiza të trafikut për të ofruar zgjidhje të besueshme dhe të bazuara në të dhëna.">
+            BaxhakuING shpk është një firmë inxhinierike e specializuar në inxhinierinë e komunikacionit, hetimin e aksidenteve dhe sigurinë rrugore. Ekipi ynë multidisiplinar kombinon aftësi të inxhinierisë mekanike me analiza të trafikut për të ofruar zgjidhje të besueshme dhe të bazuara në të dhëna.
+          </p>
+          <ul class="mt-3">
+            <li data-en="Experienced accident reconstruction specialists" data-sq="Specialistë me përvojë në rindërtimin e aksidenteve">Specialistë me përvojë në rindërtimin e aksidenteve</li>
+            <li data-en="Certified traffic signaling designers" data-sq="Projektues të certifikuar të sinjalizimit rrugor">Projektues të certifikuar të sinjalizimit rrugor</li>
+            <li data-en="AutoCAD experts for precise technical drawings" data-sq="Ekspertë AutoCAD për vizatime teknike të sakta">Ekspertë AutoCAD për vizatime teknike të sakta</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+			<img src="img/about.png" alt="expertise" class="img-fluid rounded">
+		  </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" class="py-5">
+    <div class="container">
+      <h3 class="text-center mb-4" data-en="Our Services" data-sq="Shërbimet Tona">Shërbimet Tona</h3>
+
+      <div class="row g-4">
+        <!-- Service 1 -->
+        <div class="col-md-4">
+          <div class="section-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <div class="service-icon"><i class="fa-solid fa-road"></i></div>
+              <div>
+                <h5 data-en="Road Signaling Projects" data-sq="Projekte Sinjalizimi të Rrugëve">Projekte Sinjalizimi të Rrugëve</h5>
+                <p class="small" data-en="Complete planning, design and supervision of road signaling systems including regulatory signs, warning signs, pavement markings and adaptive signage solutions to improve traffic safety."
+                              data-sq="Planifikim, dizajn dhe mbikëqyrje e plotë e sistemeve të sinjalizimit rrugor, përfshirë sinjalet rregullatore, sinjalet paralajmëruese, vijëzimet dhe zgjidhje sinjalizimi adaptiv për përmirësimin e sigurisë së trafikut.">
+                  Planifikim, dizajn dhe mbikëqyrje e plotë e sistemeve të sinjalizimit rrugor, përfshirë sinjalet rregullatore, sinjalet paralajmëruese, vijëzimet dhe zgjidhje sinjalizimi adaptiv për përmirësimin e sigurisë së trafikut.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="col-md-4">
+          <div class="section-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
+              <div>
+                <h5 data-en="International Design Services" data-sq="Bizneseve jashtë - Shërbime Projektimi">Bizneseve jashtë - Shërbime Projektimi</h5>
+                <p class="small" data-en="We support international clients with tailored design packages, regulatory compliance documentation, and remote project coordination to meet cross-border requirements."
+                              data-sq="Ne mbështesim klientët ndërkombëtarë me pako dizajni të përshtatura, dokumentacion për pajtueshmëri me rregulloret dhe koordinim të projekteve në distancë për të përmbushur kërkesat ndërkufitare.">
+                  Ne mbështesim klientët ndërkombëtarë me pako dizajni të përshtatura, dokumentacion për pajtueshmëri me rregulloret dhe koordinim të projekteve në distancë për të përmbushur kërkesat ndërkufitare.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="col-md-4">
+          <div class="section-card h-100">
+            <div class="d-flex align-items-start gap-3">
+              <div class="service-icon"><i class="fa-solid fa-drafting-compass"></i></div>
+              <div>
+                <h5 data-en="AutoCAD Drafting & Design" data-sq="Pune me AutoCAD">Pune me AutoCAD</h5>
+                <p class="small" data-en="High-precision AutoCAD drawings for road layouts, traffic signs, structural details and mechanical components. We deliver editable DWG/DXF files and construction-ready plans."
+                              data-sq="Vizatime AutoCAD me saktësi të lartë për skemat rrugore, sinjalizim, detaje strukturore dhe komponentë mekanikë. Ofrim skedarësh DWG/DXF të redaktueshëm dhe plane gati për ndërtim.">
+                  Vizatime AutoCAD me saktësi të lartë për skemat rrugore, sinjalizim, detaje strukturore dhe komponentë mekanikë. Ofrim skedarësh DWG/DXF të redaktueshëm dhe plane gati për ndërtim.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-5">
+    <div class="container section-card">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h4 data-en="Get in touch" data-sq="Na kontaktoni">Na kontaktoni</h4>
+          <p class="small mt-2" data-en="Fill the form and we will get back to you within 1-2 business days." data-sq="Plotësoni formularin dhe do t'ju kthejmë përgjigje brenda 1-2 ditëve pune.">
+            Plotësoni formularin dhe do t'ju kthejmë përgjigje brenda 1-2 ditëve pune.
+          </p>
+
+          <div class="mt-4">
+            <p class="mb-1"><strong>Email:</strong> tasip.baxhaku@baxhakuing.com</p>
+            <p class="mb-1"><strong>Tel:</strong> +383 49614 940</p>
+            <p class="mb-1"><strong>Address:</strong> Aktash, 10000, Prishtine, Kosove</p>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <!-- Contact form that will use EmailJS -->
+          <form id="contact-form">
+            <input type="hidden" name="to_email" value="tasip.baxhaku@baxhakuing.com">
+            <div class="mb-3">
+              <label class="form-label" data-en="Your name" data-sq="Emri juaj">Emri juaj</label>
+              <input type="text" class="form-control" name="from_name" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" data-en="Your email" data-sq="Emaili juaj">Emaili juaj</label>
+              <input type="email" class="form-control" name="from_email" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" data-en="Subject" data-sq="Subjekti">Subjekti</label>
+              <input type="text" class="form-control" name="subject" required>
+            </div>
+            <div class="mb-3">
+              <label class="form-label" data-en="Message" data-sq="Mesazhi">Mesazhi</label>
+              <textarea class="form-control" name="message" rows="5" required></textarea>
+            </div>
+
+            <div id="form-alert" class="mb-3" style="display:none;"></div>
+
+            <button type="submit" class="btn btn-primary" id="sendBtn" data-en="Send Message" data-sq="Dërgo Mesazh">Dërgo Mesazh</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <small>© 2025 BaxhakuING shpk — <span data-en="All rights reserved" data-sq="Të gjitha të drejtat e rezervuara">Të gjitha të drejtat e rezervuara</span>.</small>
+    </div>
+  </footer>
+
+  <!-- Dependencies -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+  <script>
+    /* ---------------------------
+       Language toggle (EN <-> SQ)
+       - Uses elements with data-en and data-sq attributes
+    ----------------------------*/
+   let currentLang = 'en'; // default English
+
+	function toggleLang() {
+	  currentLang = currentLang === 'sq' ? 'en' : 'sq';
+	  
+	  // Update flag and label
+	  document.getElementById('langFlag').textContent = currentLang === 'sq' ? '🇦🇱' : '🇬🇧';
+	  document.getElementById('langLabel').textContent = currentLang === 'sq' ? 'SQ' : 'EN';
+	  
+	  // Swap text for all elements with data attributes
+	  document.querySelectorAll('[data-en]').forEach(el => {
+		el.textContent = el.getAttribute(`data-${currentLang}`);
+	  });
+	}
+
+	// Initialize texts on first load
+	document.addEventListener('DOMContentLoaded', () => {
+	  // Set texts according to default language
+	  document.querySelectorAll('[data-en]').forEach(el => {
+		el.textContent = el.getAttribute(`data-${currentLang}`);
+	  });
+	  document.getElementById('langFlag').textContent = '🇬🇧';
+	  document.getElementById('langLabel').textContent = 'EN';
+	});
+
+    /* ---------------------------
+       EmailJS configuration
+       -> Replace the placeholders below with your EmailJS values:
+         - YOUR_SERVICE_ID
+         - YOUR_TEMPLATE_ID
+         - YOUR_PUBLIC_KEY (User ID)
+       In EmailJS template, use template variables:
+         from_name, from_email, subject, message, to_email
+    ----------------------------*/
+    (function(){
+      // NOTE: replace the string below with your EmailJS public key (user id)
+      const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
+      if (emailjs && typeof emailjs.init === 'function') {
+        emailjs.init(EMAILJS_PUBLIC_KEY);
+      }
+    })();
+
+    // handle form submit
+    document.getElementById('contact-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const sendBtn = document.getElementById('sendBtn');
+      const alertBox = document.getElementById('form-alert');
+
+      sendBtn.disabled = true;
+      sendBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
+
+      // Replace with your service and template IDs
+      const SERVICE_ID = 'YOUR_SERVICE_ID';
+      const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
+      // send using emailjs
+      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
+        .then(function(response) {
+          alertBox.style.display = 'block';
+          alertBox.className = 'alert alert-success';
+          alertBox.textContent = (currentLang === 'sq') ? 'Mesazhi u dërgua me sukses. Faleminderit!' : 'Message sent successfully. Thank you!';
+          sendBtn.disabled = false;
+          sendBtn.innerHTML = (currentLang === 'sq') ? 'Dërgo Mesazh' : 'Send Message';
+          document.getElementById('contact-form').reset();
+        }, function(error) {
+          alertBox.style.display = 'block';
+          alertBox.className = 'alert alert-danger';
+          alertBox.textContent = (currentLang === 'sq') ? 'Ndodhi një gabim gjatë dërgimit. Ju lutemi provoni sërish.' : 'An error occurred while sending. Please try again.';
+          sendBtn.disabled = false;
+          sendBtn.innerHTML = (currentLang === 'sq') ? 'Dërgo Mesazh' : 'Send Message';
+          console.error('EmailJS error:', error);
+        });
+    });
+  </script>
+
+  <!-- Usage notes (do not remove): 
+       1) In EmailJS dashboard create a Service (service_xxx) and Template (template_xxx).
+       2) Edit the template to include variables: from_name, from_email, subject, message, to_email.
+       3) Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY above with real values.
+       4) Optionally set a static recipient inside the EmailJS template to tasip.baxhaku@baxhakuing.com,
+          or leave to_email field dynamic (we included it as hidden input already).
+  -->
+
+</body>
+</html>

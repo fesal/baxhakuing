@@ -4,365 +4,812 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>BaxhakuING shpk — Vlerësim Aksidentesh & Sinjalizim Rrugor</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 
   <!-- Bootstrap 5 -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Icons -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-  <style>
-    :root{
-      --brand-dark: #2b5876; /* primary from logo */
-      --brand-mid:  #4e7390; /* secondary */
-      --bg: #f5f7fa;
-      --white: #fff;
-    }
-    body{font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:#123;}
-    header{background:var(--white);box-shadow:0 2px 12px rgba(0,0,0,0.06);position:sticky;top:0;z-index:1000}
-    .navbar-brand img{height:48px}
-    .lang-btn{min-width:86px}
-    .hero{
-      background: linear-gradient(0deg, rgba(43,88,118,0.82), rgba(43,88,118,0.65)), url('img/background.png');
-      background-size:cover;background-position:center;color:var(--white);
-      padding:100px 0;text-align:left;
-    }
-    .hero h1{font-weight:700;font-size:2.4rem}
-	.hero img {
-	  opacity: 0.7;
-	}
-	#about {
-  padding: 5rem 0;
-  background-color: #f9f9f9; /* ngjyrë neutrale */
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+ <style>
+:root{
+  --brand-dark: #2b5876;
+  --brand-mid:  #4e7390;
+  --bg: #f9f9f9;
+  --white: #fff;
+  --text-dark: #111;
+  --text-mid: #333;
+  --accent: #4e7390;
+  --gold-gradient: linear-gradient(45deg, #ffd700, #f0c419);
 }
 
-#about h3 {
-  font-size: 2rem;
+body {
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text-dark);
+  line-height: 1.95;
+  overflow-x: hidden;
+}
+
+header {
+  background: var(--white);
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar-brand img { height:48px; }
+
+.navbar-nav .nav-link {
+  position: relative;
   font-weight: 600;
-  color: #2b5876; /* ngjyrë si logo */
+  color: #4e7390; /* ngjyrë bazë */
+  background: linear-gradient(45deg, #ffd700, #f0c419); /* gradient i artë */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: transform 0.2s, text-shadow 0.3s;
+}
+
+.navbar-nav .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(45deg, #ffd700, #f0c419);
+  border-radius: 2px;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+.navbar-nav .nav-link:hover {
+  transform: translateY(-2px);
+  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.hero {
+  background: linear-gradient(135deg, rgba(43,88,118,0.85), rgba(78,115,144,0.85)),
+              url('img/background.png') center/cover no-repeat;
+  color: var(--white);
+  padding: 100px 0;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+/* Butoni i gjuhës */
+.lang-btn {
+  min-width: 0;                /* Hiq gjerësinë fikse */
+  padding: 0.25rem 0.5rem;     /* Pak padding për dukje të rregullt */
+  display: inline-flex;         /* Vendos flamurin dhe tekstin në rresht */
+  align-items: center;
+  gap: 6px;                     /* Hapësirë mes flamurit dhe tekstit */
+  font-size: 0.875rem;          /* Teksti pak më i vogël për kompaktësi */
+}
+
+/* Imazhet brenda dropdown-it */
+.dropdown-item img {
+  width: 20px;
+  height: 20px;
+  margin-right: 6px;
+}
+
+/* Dropdown menu për ta bërë më të ngushtë dhe të përshtatshëm */
+.dropdown-menu {
+  min-width: auto;              /* nuk e detyron gjerësinë */
+  padding: 0.25rem 0;           /* pak padding vertikal */
+}
+
+/* Opsionale: hover efekt më i qartë */
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
   margin-bottom: 1rem;
+  line-height: 1.25;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-#about p {
+.hero h4 {
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.3;
+}
+
+.hero b { color: #ffd700; }
+
+.hero ul li {
   font-size: 1.05rem;
-  line-height: 1.8;
-  color: #555;
-}
-
-#about ul {
-  margin-top: 1rem;
-  padding-left: 1.2rem;
-  list-style-type: disc;
-  color: #333;
-}
-
-#about ul li {
   margin-bottom: 0.5rem;
 }
 
-#about img {
-  width: 100%;
-  max-height: 420px;
-  object-fit: cover; /* mbush hapësirën bukur */
-  border-radius: 0.5rem;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* shadow profesional */
+.fade-in { opacity: 0; transform: translateY(20px); animation: fadeInUp 1s ease forwards; }
+.delay-1 { animation-delay: 0.3s; }
+.delay-2 { animation-delay: 0.6s; }
+.delay-3 { animation-delay: 0.9s; }
+
+@keyframes fadeInUp { from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);} }
+
+#about, #services {
+  padding: 5rem 0;
 }
-    .section-card{background:var(--white);border-radius:12px;padding:32px;box-shadow:0 6px 24px rgba(11,22,33,0.06)}
-    .service-icon{font-size:36px;color:var(--brand-dark)}
-    .btn-primary{background:var(--brand-dark);border-color:var(--brand-dark)}
-    footer{background:#0b1b2b;color:#fff;padding:28px 0}
-    .flag-emoji{font-size:18px;margin-right:8px}
-    @media (max-width:767px){ .hero{padding:60px 0}.hero h1{font-size:1.6rem} }
-  </style>
+
+#about h3, #services h3 {
+  font-size: 2rem;
+  font-weight: 600;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+
+#about p, #services p {
+  font-size: 1.05rem;
+  line-height: 1.95;
+  color: var(--text-mid);
+}
+
+#about ul, #services ul {
+  margin-top: 1rem;
+  padding-left: 1.2rem;
+  list-style-type: disc;
+  color: var(--text-mid);
+}
+
+#about ul li, #services ul li, .small {
+  margin-bottom: 0.5rem;
+}
+
+.section-card {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+}
+
+.service-icon { font-size: 36px; background: var(--gold-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.btn-primary {
+  background: linear-gradient(135deg, #ffd700, #f0c419);
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+}
+
+.hero-img {
+  max-width: 90%;
+  border-radius: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+
+/* Timeline Vertical */
+.timeline {
+  position: relative;
+  margin: 2rem 0;
+  padding-left: 40px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-icon {
+  position: absolute;
+  left: -28px;
+  background: var(--gold-gradient);
+  color: #fff;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.timeline-content {
+  margin-left: 60px; /* më shumë se gjysma e ikonës */
+}
+
+.timeline-content h5 {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.timeline-content p {
+  margin: 0;
+  color: var(--gold-gradient);
+}
+
+/* Forma kontakt moderne */
+.contact-form {
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  transition: all 0.3s ease;
+}
+
+.contact-form .form-control {
+  border-radius: 0.75rem;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+  padding: 1.25rem 1rem;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+  border-color: #ffd700;
+  box-shadow: 0 0 8px rgba(255,215,0,0.3);
+  background-color: #fff;
+}
+
+.contact-form label {
+  color: #555;
+  font-weight: 500;
+}
+
+.btn-modern {
+  background: linear-gradient(135deg, #ffd700, #f0c419);
+  color: #fff;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-modern:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.icon-gold {
+    color: #FFD700;
+    transition: transform 0.3s, color 0.3s;
+}
+.icon-gold:hover {
+    color: #FFA500;
+    transform: scale(1.2);
+}
+
+
+
+footer {
+  background: #0b1b2b;
+  color: #fff; /* default tekst i bardhë */
+  padding: 28px 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+footer p {
+  color: #fff; /* i bardhë mbi sfond të errët */
+  text-shadow: 0 1px 2px rgba(0,0,0,0.3); /* hije pak më e fortë për lexueshmëri */
+}
+
+footer p:first-child {
+  color: #FFD700; /* i artë për titullin ose tekstin kryesor */
+}
+
+
+@media (max-width:767px){
+  .hero { padding: 60px 0; }
+  .hero h1 { font-size: 1.6rem; }
+  .dropdown-menu.dropdown-menu-end {
+    right: auto;  /* heq drejtimin e djathtë */
+    left: 0;      /* vendos dropdown nga e majta */
+  }
+  
+  .timeline {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .timeline-icon {
+    position: static;
+    margin-bottom: 1rem;
+  }
+}
+</style>
+
 </head>
+
 <body>
 
-  <!-- Header / Navbar -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light px-4">
-      <a class="navbar-brand d-flex align-items-center" href="#">
-	  <div class="ms-3">
-        <img src="img/baxhakuing.jpg" alt="BaxhakuING logo">
+<!-- Header / Navbar -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light px-4">
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <div class="ms-3"><img src="img/baxhakuing.jpg" alt="BaxhakuING logo"></div>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav me-3">
+        <li class="nav-item"><a class="nav-link" href="#home" data-en="Home" data-sq="Ballina" data-de="Startseite">Ballina</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about" data-en="About" data-sq="Rreth Nesh" data-de="Über Uns">Rreth Nesh</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services" data-en="Services" data-sq="Shërbimet" data-de="Dienstleistungen">Shërbimet</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-sq="Kontakt" data-de="Kontakt">Kontakt</a></li>
+      </ul>
+
+      <!-- Language toggle with flags -->
+      <!-- Language dropdown with flags -->
+	<div class="dropdown ms-3">
+	  <button class="btn btn-outline-secondary dropdown-toggle d-flex align-items-center lang-btn" type="button" id="langDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+		<img id="currentFlag" src="flags/al.png" alt="SQ" style="width:16px; height:16px; margin-right:6px;">
+		<span id="currentLangLabel">SQ</span>
+	  </button>
+	  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="langDropdown">
+		<li>
+		  <a class="dropdown-item d-flex align-items-center" href="#" onclick="setLang('sq')">
+			<img src="flags/al.png" alt="SQ" style="width:16px; height:16px; margin-right:6px;"> SQ
+		  </a>
+		</li>
+		<li>
+		  <a class="dropdown-item d-flex align-items-center" href="#" onclick="setLang('en')">
+			<img src="flags/gb.png" alt="EN" style="width:16px; height:16px; margin-right:6px;"> EN
+		  </a>
+		</li>
+		<li>
+		  <a class="dropdown-item d-flex align-items-center" href="#" onclick="setLang('de')">
+			<img src="flags/de.png" alt="DE" style="width:16px; height:16px; margin-right:6px;"> DE
+		  </a>
+		</li>
+	  </ul>
+	</div>
+
+    </div>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section id="home" class="hero">
+  <div class="container fade-in">
+    <div class="row align-items-center">
+      <div class="col-lg-7 text-white">
+
+        <h1 data-en="Engineering road safety through expertise and precision"
+            data-sq="Ekspertizë Teknike dhe Projekte Inxhinierike me Standard Profesional"
+            data-de="Ingenieurwesen für Verkehrssicherheit durch Expertise und Präzision">
+          Ekspertizë Teknike dhe Projekte Inxhinierike me Standard Profesional
+        </h1>
+
+        <div class="lead mt-4" style="font-size:1.2rem; line-height:1.9;">
+          <p data-en="BaxhakuING sh.p.k. provides specialized services in vehicle damage assessment, road accident expertise, road signaling projects, and professional technical consulting. We ensure technical accuracy, impartiality, and complete documentation for every case."
+             data-sq="BaxhakuING sh.p.k. ofron shërbime të specializuara në: vlerësim dëmesh të automjeteve, ekspertiza aksidentesh rrugore, projekte të sinjalizimit rrugor dhe këshillime profesionale teknike. Ne sigurojmë saktësi teknike, paanshmëri dhe dokumentim të plotë për çdo rast."
+             data-de="BaxhakuING sh.p.k. bietet spezialisierte Dienstleistungen in der Fahrzeugschadensbewertung, Unfallgutachten, Straßenbeschilderungsprojekte und professionelle technische Beratung. Wir gewährleisten technische Genauigkeit, Unparteilichkeit und vollständige Dokumentation für jeden Fall.">
+            BaxhakuING sh.p.k. ofron shërbime të specializuara në: vlerësim dëmesh të automjeteve, ekspertiza aksidentesh rrugore, projekte të sinjalizimit rrugor dhe këshillime profesionale teknike. Ne sigurojmë saktësi teknike, paanshmëri dhe dokumentim të plotë për çdo rast.
+          </p>
+
+          <div class="mt-4 fade-in delay-1">
+            <h4 data-en="Why BaxhakuING sh.p.k?" data-sq="Pse BaxhakuING sh.p.k.?" data-de="Warum BaxhakuING sh.p.k.?">Pse BaxhakuING sh.p.k.?</h4>
+            <ul class="mt-3" style="list-style: none; padding-left: 0;">
+              <li data-en="• Consolidated expertise in accident analysis and vehicle damage evaluation, supported by highly experienced engineers."
+                  data-sq="• Ekspertizë e konsoliduar në analizën e aksidenteve rrugore dhe vlerësimin e dëmeve të automjeteve, e mbështetur nga inxhinierë me përvojë të gjatë profesionale."
+                  data-de="• Konsolidierte Expertise in Unfallanalyse und Fahrzeugschadensbewertung, unterstützt von erfahrenen Ingenieuren.">
+                • Ekspertizë e konsoliduar në analizën e aksidenteve rrugore dhe vlerësimin e dëmeve të automjeteve, e mbështetur nga inxhinierë me përvojë të gjatë profesionale.
+              </li>
+              <li data-en="• Professional road signaling design, with extensive experience in standardized and safe projects."
+                  data-sq="• Projektim profesional i sinjalizimit rrugor, me eksperiencë të gjatë në realizimin e projekteve të standardizuara dhe të sigurta."
+                  data-de="• Professionelles Straßenbeschilderungsdesign mit umfangreicher Erfahrung in standardisierten und sicheren Projekten.">
+                • Projektim profesional i sinjalizimit rrugor, me eksperiencë të gjatë në realizimin e projekteve të standardizuara dhe të sigurta.
+              </li>
+              <li data-en="• Reliability and technical precision guaranteed by our specialized and qualified engineering team."
+                  data-sq="• Besueshmëri dhe saktësi teknike, e garantuar nga ekipi ynë i specializuar dhe i kualifikuar në fushat inxhinierike dhe teknike."
+                  data-de="• Zuverlässigkeit und technische Präzision garantiert durch unser spezialisiertes und qualifiziertes Ingenieurteam.">
+                • Besueshmëri dhe saktësi teknike, e garantuar nga ekipi ynë i specializuar dhe i kualifikuar në fushat inxhinierike dhe teknike.
+              </li>
+            </ul>
+          </div>
         </div>
-      </a>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+        <div class="mt-5 fade-in delay-2">
+          <a href="#contact" class="btn btn-primary btn-lg me-2" data-en="Request a Quote" data-sq="Kërko ofertë" data-de="Angebot anfordern">Kërko ofertë</a>
+          <a href="#services" class="btn btn-outline-light btn-lg" data-en="Our Services" data-sq="Shërbimet" data-de="Unsere Dienstleistungen">Shërbimet</a>
+        </div>
+      </div>
 
-      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
-        <ul class="navbar-nav me-3">
-          <li class="nav-item"><a class="nav-link" href="#home" data-en="Home" data-sq="Ballina">Ballina</a></li>
-          <li class="nav-item"><a class="nav-link" href="#about" data-en="About" data-sq="Rreth Nesh">Rreth Nesh</a></li>
-          <li class="nav-item"><a class="nav-link" href="#services" data-en="Services" data-sq="Shërbimet">Shërbimet</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact" data-en="Contact" data-sq="Kontakt">Kontakt</a></li>
+      <div class="col-lg-5 d-none d-lg-flex justify-content-end fade-in delay-3">
+        <img src="img/expertise.jpg" class="img-fluid rounded shadow hero-img" alt="road engineering">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section id="about" class="py-5">
+  <div class="container section-card">
+    <div class="row g-4 align-items-center">
+      <div class="col-lg-6">
+        <h3 data-en="About BaxhakuING" data-sq="Rreth BaxhakuING" data-de="Über BaxhakuING">Rreth BaxhakuING</h3>
+        <p class="mt-3" data-en="BaxhakuING shpk is a specialized engineering firm focused on traffic engineering, accident investigation and road safety. Our multidisciplinary team combines mechanical engineering skills with traffic analysis to deliver reliable, data-driven solutions."
+                        data-sq="BaxhakuING shpk është një firmë inxhinierike e specializuar në inxhinierinë e komunikacionit, hetimin e aksidenteve dhe sigurinë rrugore. Ekipi ynë multidisiplinar kombinon aftësi të inxhinierisë mekanike me analiza të trafikut për të ofruar zgjidhje të besueshme dhe të bazuara në të dhëna."
+                        data-de="BaxhakuING shpk ist ein spezialisiertes Ingenieurbüro, das sich auf Verkehrstechnik, Unfalluntersuchungen und Verkehrssicherheit konzentriert. Unser multidisziplinäres Team kombiniert mechanische Ingenieursfähigkeiten mit Verkehrsanalysen, um zuverlässige, datenbasierte Lösungen zu liefern.">
+          BaxhakuING shpk është një firmë inxhinierike e specializuar në inxhinierinë e komunikacionit, hetimin e aksidenteve dhe sigurinë rrugore. Ekipi ynë multidisiplinar kombinon aftësi të inxhinierisë mekanike me analiza të trafikut për të ofruar zgjidhje të besueshme dhe të bazuara në të dhëna.
+        </p>
+        <ul class="mt-3">
+          <li data-en="Experienced accident reconstruction specialists" data-sq="Specialistë me përvojë në rindërtimin e aksidenteve" data-de="Erfahrene Spezialisten für Unfallrekonstruktion">Specialistë me përvojë në rindërtimin e aksidenteve</li>
+          <li data-en="Certified traffic signaling designers" data-sq="Projektues të certifikuar të sinjalizimit rrugor" data-de="Zertifizierte Verkehrszeichen-Designer">Projektues të certifikuar të sinjalizimit rrugor</li>
+          <li data-en="AutoCAD experts for precise technical drawings" data-sq="Ekspertë AutoCAD për vizatime teknike të sakta" data-de="AutoCAD-Experten für präzise technische Zeichnungen">Ekspertë AutoCAD për vizatime teknike të sakta</li>
         </ul>
-
-        <!-- Language toggle with flags -->
-        <div class="d-flex align-items-center">
-          <button id="langToggle" class="btn btn-outline-secondary lang-btn d-flex align-items-center" onclick="toggleLang()">
-            <span id="langFlag" class="flag-emoji">🇦🇱</span>
-            <span id="langLabel">SQ</span>
-          </button>
-        </div>
       </div>
-    </nav>
-  </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-7 text-white">
-          <h1 data-en="Engineering road safety through expertise and precision" data-sq="Inxhinieri e sigurisë rrugore me ekspertizë dhe saktësi">Inxhinieri e sigurisë rrugore me ekspertizë dhe saktësi</h1>
-          <p class="lead mt-3" data-en="We provide professional accident evaluation, road signaling projects, international design services and precise AutoCAD drafting."
-                                       data-sq="Ofrim vlerësim profesional të aksidenteve, projekte sinjalizimi rrugor, shërbime projektimi ndërkombëtar dhe vizatime të sakta në AutoCAD.">
-            Ofrim vlerësim profesional të aksidenteve, projekte sinjalizimi rrugor, shërbime projektimi ndërkombëtar dhe vizatime të sakta në AutoCAD.
-          </p>
-
-          <div class="mt-4">
-            <a href="#contact" class="btn btn-primary btn-lg me-2" data-en="Request a Quote" data-sq="Kërko ofertë">Kërko ofertë</a>
-            <a href="#services" class="btn btn-outline-light btn-lg" data-en="Our Services" data-sq="Shërbimet">Shërbimet</a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 d-none d-lg-block">
-          <!-- optional illustrative image -->
-          <img src="img/expertise.jpg" class="img-fluid rounded shadow" alt="road engineering">
-        </div>
+      <div class="col-lg-6">
+        <img src="img/about.png" alt="expertise" class="img-fluid rounded">
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- About -->
-  <section id="about" class="py-5">
-    <div class="container section-card">
-      <div class="row g-4 align-items-center">
-        <div class="col-lg-6">
-          <h3 data-en="About BaxhakuING" data-sq="Rreth BaxhakuING">Rreth BaxhakuING</h3>
-          <p class="mt-3" data-en="BaxhakuING shpk is a specialized engineering firm focused on traffic engineering, accident investigation and road safety. Our multidisciplinary team combines mechanical engineering skills with traffic analysis to deliver reliable, data-driven solutions."
-                          data-sq="BaxhakuING shpk është një firmë inxhinierike e specializuar në inxhinierinë e komunikacionit, hetimin e aksidenteve dhe sigurinë rrugore. Ekipi ynë multidisiplinar kombinon aftësi të inxhinierisë mekanike me analiza të trafikut për të ofruar zgjidhje të besueshme dhe të bazuara në të dhëna.">
-            BaxhakuING shpk është një firmë inxhinierike e specializuar në inxhinierinë e komunikacionit, hetimin e aksidenteve dhe sigurinë rrugore. Ekipi ynë multidisiplinar kombinon aftësi të inxhinierisë mekanike me analiza të trafikut për të ofruar zgjidhje të besueshme dhe të bazuara në të dhëna.
-          </p>
-          <ul class="mt-3">
-            <li data-en="Experienced accident reconstruction specialists" data-sq="Specialistë me përvojë në rindërtimin e aksidenteve">Specialistë me përvojë në rindërtimin e aksidenteve</li>
-            <li data-en="Certified traffic signaling designers" data-sq="Projektues të certifikuar të sinjalizimit rrugor">Projektues të certifikuar të sinjalizimit rrugor</li>
-            <li data-en="AutoCAD experts for precise technical drawings" data-sq="Ekspertë AutoCAD për vizatime teknike të sakta">Ekspertë AutoCAD për vizatime teknike të sakta</li>
-          </ul>
-        </div>
+<!-- Services -->
+<!-- Services -->
+<section id="services" class="py-5">
+  <div class="container">
+    <h3 class="text-center mb-4" data-en="Our Services" data-sq="Shërbimet" data-de="Unsere Dienstleistungen">Shërbimet tona</h3>
 
-        <div class="col-lg-6">
-			<img src="img/about.png" alt="expertise" class="img-fluid rounded">
-		  </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services -->
-  <section id="services" class="py-5">
-    <div class="container">
-      <h3 class="text-center mb-4" data-en="Our Services" data-sq="Shërbimet Tona">Shërbimet Tona</h3>
-
-      <div class="row g-4">
-        <!-- Service 1 -->
-        <div class="col-md-4">
-          <div class="section-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <div class="service-icon"><i class="fa-solid fa-road"></i></div>
-              <div>
-                <h5 data-en="Road Signaling Projects" data-sq="Projekte Sinjalizimi të Rrugëve">Projekte Sinjalizimi të Rrugëve</h5>
-                <p class="small" data-en="Complete planning, design and supervision of road signaling systems including regulatory signs, warning signs, pavement markings and adaptive signage solutions to improve traffic safety."
-                              data-sq="Planifikim, dizajn dhe mbikëqyrje e plotë e sistemeve të sinjalizimit rrugor, përfshirë sinjalet rregullatore, sinjalet paralajmëruese, vijëzimet dhe zgjidhje sinjalizimi adaptiv për përmirësimin e sigurisë së trafikut.">
-                  Planifikim, dizajn dhe mbikëqyrje e plotë e sistemeve të sinjalizimit rrugor, përfshirë sinjalet rregullatore, sinjalet paralajmëruese, vijëzimet dhe zgjidhje sinjalizimi adaptiv për përmirësimin e sigurisë së trafikut.
-                </p>
-              </div>
+    <div class="row g-4">
+      <!-- Service 1: Vehicle Damage Assessment -->
+      <div class="col-md-6">
+        <div class="section-card h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div class="service-icon"><i class="fa-solid fa-car-crash"></i></div>
+            <div>
+              <h5 data-en="Vehicle Damage Assessment" data-sq="Vlerësimi i dëmeve të automjeteve" data-de="Fahrzeugschadensbewertung">
+                Vlerësimi i dëmeve të automjeteve
+              </h5>
+              <p class="small" data-en="Providing professional inspections and assessments of vehicle damages. Our reports include technical damage description, repair cost calculation, and photographic documentation, useful for insurance companies, legal institutions, or administrative purposes."
+                 data-sq="Ofrimi i inspektimeve dhe vlerësimeve profesionale të dëmeve për automjete. Raportet tona përfshijnë përshkrim teknik të dëmit, përllogaritje të kostos së riparimit dhe dokumentim fotografik, të vlefshëm për kompani sigurimi, institucione ligjore apo qëllime administrative."
+                 data-de="Anbieten professioneller Inspektionen und Bewertungen von Fahrzeugschäden. Unsere Berichte enthalten technische Schadensbeschreibungen, Reparaturkostenschätzungen und fotografische Dokumentation, nützlich für Versicherungsunternehmen, rechtliche Institutionen oder Verwaltungszwecke.">
+                Ofrimi i inspektimeve dhe vlerësimeve profesionale të dëmeve për automjete. Raportet tona përfshijnë përshkrim teknik të dëmit, përllogaritje të kostos së riparimit dhe dokumentim fotografik, të vlefshëm për kompani sigurimi, institucione ligjore apo qëllime administrative.
+              </p>
             </div>
           </div>
         </div>
-
-        <!-- Service 2 -->
-        <div class="col-md-4">
-          <div class="section-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <div class="service-icon"><i class="fa-solid fa-globe"></i></div>
-              <div>
-                <h5 data-en="International Design Services" data-sq="Bizneseve jashtë - Shërbime Projektimi">Bizneseve jashtë - Shërbime Projektimi</h5>
-                <p class="small" data-en="We support international clients with tailored design packages, regulatory compliance documentation, and remote project coordination to meet cross-border requirements."
-                              data-sq="Ne mbështesim klientët ndërkombëtarë me pako dizajni të përshtatura, dokumentacion për pajtueshmëri me rregulloret dhe koordinim të projekteve në distancë për të përmbushur kërkesat ndërkufitare.">
-                  Ne mbështesim klientët ndërkombëtarë me pako dizajni të përshtatura, dokumentacion për pajtueshmëri me rregulloret dhe koordinim të projekteve në distancë për të përmbushur kërkesat ndërkufitare.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="col-md-4">
-          <div class="section-card h-100">
-            <div class="d-flex align-items-start gap-3">
-              <div class="service-icon"><i class="fa-solid fa-drafting-compass"></i></div>
-              <div>
-                <h5 data-en="AutoCAD Drafting & Design" data-sq="Pune me AutoCAD">Pune me AutoCAD</h5>
-                <p class="small" data-en="High-precision AutoCAD drawings for road layouts, traffic signs, structural details and mechanical components. We deliver editable DWG/DXF files and construction-ready plans."
-                              data-sq="Vizatime AutoCAD me saktësi të lartë për skemat rrugore, sinjalizim, detaje strukturore dhe komponentë mekanikë. Ofrim skedarësh DWG/DXF të redaktueshëm dhe plane gati për ndërtim.">
-                  Vizatime AutoCAD me saktësi të lartë për skemat rrugore, sinjalizim, detaje strukturore dhe komponentë mekanikë. Ofrim skedarësh DWG/DXF të redaktueshëm dhe plane gati për ndërtim.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </section>
 
-  <!-- Contact -->
-  <section id="contact" class="py-5">
-    <div class="container section-card">
-      <div class="row g-4">
-        <div class="col-lg-6">
-          <h4 data-en="Get in touch" data-sq="Na kontaktoni">Na kontaktoni</h4>
-          <p class="small mt-2" data-en="Fill the form and we will get back to you within 1-2 business days." data-sq="Plotësoni formularin dhe do t'ju kthejmë përgjigje brenda 1-2 ditëve pune.">
-            Plotësoni formularin dhe do t'ju kthejmë përgjigje brenda 1-2 ditëve pune.
-          </p>
-
-          <div class="mt-4">
-            <p class="mb-1"><strong>Email:</strong> tasip.baxhaku@baxhakuing.com</p>
-            <p class="mb-1"><strong>Tel:</strong> +383 49614 940</p>
-            <p class="mb-1"><strong>Address:</strong> Aktash, 10000, Prishtine, Kosove</p>
+      <!-- Service 2: Road Accident Expertise -->
+      <div class="col-md-6">
+        <div class="section-card h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div class="service-icon"><i class="fa-solid fa-car-side"></i></div>
+            <div>
+              <h5 data-en="Road Accident Expertise" data-sq="Ekspertiza e aksidenteve rrugore" data-de="Unfallgutachten">
+                Ekspertiza e aksidenteve rrugore
+              </h5>
+              <p class="small" data-en="We perform technical analyses to determine the event mechanism, impact point, and accident dynamics. Each report is based on precise measurements, visual documentation, and analytical processing, ensuring clear and well-supported conclusions."
+                 data-sq="Realizojmë analiza teknike për përcaktimin e mekanizmit të ngjarjes, pikës së goditjes dhe dinamikës së aksidentit. Çdo raport mbështetet në matje precize, dokumentim vizual dhe përpunim analitik, duke siguruar përfundime të qarta dhe të argumentuara."
+                 data-de="Wir führen technische Analysen durch, um den Ereignismechanismus, den Aufprallpunkt und die Unfall dynamik zu bestimmen. Jeder Bericht basiert auf präzisen Messungen, visueller Dokumentation und analytischer Verarbeitung, um klare und fundierte Schlussfolgerungen zu gewährleisten.">
+                Realizojmë analiza teknike për përcaktimin e mekanizmit të ngjarjes, pikës së goditjes dhe dinamikës së aksidentit. Çdo raport mbështetet në matje precize, dokumentim vizual dhe përpunim analitik, duke siguruar përfundime të qarta dhe të argumentuara.
+              </p>
+            </div>
           </div>
-        </div>
-
-        <div class="col-lg-6">
-          <!-- Contact form that will use EmailJS -->
-          <form id="contact-form">
-            <input type="hidden" name="to_email" value="tasip.baxhaku@baxhakuing.com">
-            <div class="mb-3">
-              <label class="form-label" data-en="Your name" data-sq="Emri juaj">Emri juaj</label>
-              <input type="text" class="form-control" name="from_name" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" data-en="Your email" data-sq="Emaili juaj">Emaili juaj</label>
-              <input type="email" class="form-control" name="from_email" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" data-en="Subject" data-sq="Subjekti">Subjekti</label>
-              <input type="text" class="form-control" name="subject" required>
-            </div>
-            <div class="mb-3">
-              <label class="form-label" data-en="Message" data-sq="Mesazhi">Mesazhi</label>
-              <textarea class="form-control" name="message" rows="5" required></textarea>
-            </div>
-
-            <div id="form-alert" class="mb-3" style="display:none;"></div>
-
-            <button type="submit" class="btn btn-primary" id="sendBtn" data-en="Send Message" data-sq="Dërgo Mesazh">Dërgo Mesazh</button>
-          </form>
         </div>
       </div>
+
+      <!-- Service 3: Road Signaling Projects -->
+      <div class="col-md-6">
+        <div class="section-card h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div class="service-icon"><i class="fa-solid fa-road-circle-exclamation"></i></div>
+            <div>
+              <h5 data-en="Road Signaling Projects" data-sq="Projekte të sinjalizimit rrugor" data-de="Straßenbeschilderungsprojekte">
+                Projekte të sinjalizimit rrugor
+              </h5>
+              <p class="small" data-en="Design of horizontal and vertical road signage according to road safety standards. Our projects help regulate traffic, increase safety, and prevent accidents based on real terrain analysis and expert data."
+                 data-sq="Projektim i sinjalistikës horizontale dhe vertikale të rrugëve sipas standardeve të sigurisë rrugore. Projektet tona ndihmojnë në rregullimin e qarkullimit, rritjen e sigurisë dhe parandalimin e aksidenteve, duke u bazuar në analiza reale të terrenit dhe të dhënat e ekspertizave."
+                 data-de="Entwurf von horizontalen und vertikalen Straßenschildern nach Verkehrssicherheitsstandards. Unsere Projekte helfen, den Verkehr zu regulieren, die Sicherheit zu erhöhen und Unfälle basierend auf realen Geländeanalyse und Expertendaten zu verhindern.">
+                Projektim i sinjalistikës horizontale dhe vertikale të rrugëve sipas standardeve të sigurisë rrugore. Projektet tona ndihmojnë në rregullimin e qarkullimit, rritjen e sigurisë dhe parandalimin e aksidenteve, duke u bazuar në analiza reale të terrenit dhe të dhënat e ekspertizave.
+              </p>
+			 </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service 4: Professional Consultations -->
+      <div class="col-md-6">
+        <div class="section-card h-100">
+          <div class="d-flex align-items-start gap-3">
+            <div class="service-icon"><i class="fa-solid fa-user-tie"></i></div>
+            <div>
+              <h5 data-en="Professional Consultations & Services" data-sq="Këshillime profesionale dhe sherbime të ndryshme" data-de="Professionelle Beratungen und Dienstleistungen">
+                Këshillime profesionale dhe sherbime të ndryshme
+              </h5>
+              <p class="small" data-en="Providing technical consultancy, professional advice, and complete documentation for matters related to material damages, inspections, and technical analyses. Reports and files are structured for legal, administrative, or technical purposes."
+                 data-sq="Ofrimi i konsulencave teknike, mendimi profesional dhe dokumentimit të plotë për çështje që lidhen me dëmet materiale, inspektimet dhe analizat teknike. Raportet dhe dosjet përgatiten në formë të strukturuar, të përdorshme për qëllime ligjore, administrative ose teknike."
+                 data-de="Anbieten technischer Beratung, fachlicher Expertise und vollständiger Dokumentation für Fragen im Zusammenhang mit Sachschäden, Inspektionen und technischen Analysen. Berichte und Unterlagen werden strukturiert für rechtliche, administrative oder technische Zwecke vorbereitet.">
+                Ofrimi i konsulencave teknike, mendimi profesional dhe dokumentimit të plotë për çështje që lidhen me dëmet materiale, inspektimet dhe analizat teknike. Raportet dhe dosjet përgatiten në formë të strukturuar, të përdorshme për qëllime ligjore, administrative ose teknike.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Footer -->
-  <footer>
-    <div class="container text-center">
-      <small>© 2025 BaxhakuING shpk — <span data-en="All rights reserved" data-sq="Të gjitha të drejtat e rezervuara">Të gjitha të drejtat e rezervuara</span>.</small>
+<section id="process" class="py-5 bg-light">
+  <div class="container">
+    <h3 class="text-center mb-5"><span data-sq="Procesi i Punës"
+          data-en="Work Process"
+          data-de="Arbeitsprozess">
+      Procesi i Punës
+    </span></h3>
+<div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-comment-dots"></i>
+        </div>
+        <div class="timeline-content">
+          <h5 class="timeline-title" data-sq="1. Kërkesa dhe konsultimi fillestar" data-en="1. Initial Request & Consultation" data-de="1. Erstanfrage & Beratung">1. Kërkesa dhe konsultimi fillestar</h5>
+          <p class="timeline-text" data-sq="Konsultim paraprak dhe kuptim i nevojave të klientit." data-en="Preliminary consultation and understanding client needs." data-de="Vorabberatung und Verständnis der Kundenbedürfnisse.">Konsultim paraprak dhe kuptim i nevojave të klientit.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div class="timeline-content">
+          <h5 class="timeline-title" data-sq="2. Inspektimi dhe mbledhja e të dhënave në terren" data-en="2. Inspection & Data Collection on Site" data-de="2. Inspektion & Datenerfassung vor Ort">2. Inspektimi dhe mbledhja e të dhënave në terren</h5>
+          <p class="timeline-text" data-sq="Mbledhja e të dhënave reale për analizë të saktë." data-en="Collecting real data for accurate analysis." data-de="Sammeln realer Daten für genaue Analysen.">Mbledhja e të dhënave reale për analizë të saktë.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-gears"></i>
+        </div>
+        <div class="timeline-content">
+          <h5 class="timeline-title" data-sq="3. Analiza ose projektimi teknik" data-en="3. Technical Analysis or Design" data-de="3. Technische Analyse oder Entwurf">3. Analiza ose projektimi teknik</h5>
+          <p class="timeline-text" data-sq="Përpunim profesional i të dhënave dhe krijim i zgjidhjeve teknike." data-en="Professional data processing and technical solution design." data-de="Professionelle Datenverarbeitung und Erstellung technischer Lösungen.">Përpunim profesional i të dhënave dhe krijim i zgjidhjeve teknike.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-file-lines"></i>
+        </div>
+        <div class="timeline-content">
+          <h5 class="timeline-title" data-sq="4. Hartimi i raportit / projektit profesional" data-en="4. Drafting Professional Report / Project" data-de="4. Erstellung des professionellen Berichts / Projekts">4. Hartimi i raportit / projektit profesional</h5>
+          <p class="timeline-text" data-sq="Dokumentimi i rezultateve në format të qartë dhe të strukturuar." data-en="Documenting results in a clear and structured format." data-de="Dokumentation der Ergebnisse in einem klaren und strukturierten Format.">Dokumentimi i rezultateve në format të qartë dhe të strukturuar.</p>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-icon">
+          <i class="fa-solid fa-handshake"></i>
+        </div>
+        <div class="timeline-content">
+          <h5 class="timeline-title" data-sq="5. Dorëzimi i dokumentacionit zyrtar dhe komunikimi me klientin" data-en="5. Delivery of Official Documents & Client Communication" data-de="5. Übergabe der offiziellen Dokumentation & Kundenkommunikation">5. Dorëzimi i dokumentacionit zyrtar dhe komunikimi me klientin</h5>
+          <p class="timeline-text" data-sq="Komunikim direkt dhe dorëzim i dokumenteve përfundimtare." data-en="Direct communication and delivery of final documents." data-de="Direkte Kommunikation und Übergabe der Enddokumente.">Komunikim direkt dhe dorëzim i dokumenteve përfundimtare.</p>
+        </div>
+      </div>
+
     </div>
-  </footer>
+  </div>
+</section>
 
-  <!-- Dependencies -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- EmailJS SDK -->
-  <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-  <script>
-    /* ---------------------------
-       Language toggle (EN <-> SQ)
-       - Uses elements with data-en and data-sq attributes
-    ----------------------------*/
-   let currentLang = 'en'; // default English
+<!-- Contact -->
+<section id="contact" class="py-5 bg-light">
+  <div class="container">
+    <h3 class="text-center mb-5"><span data-sq="Kontakti"
+            data-en="Contact"
+            data-de="Kontakte">Kontakti</h3>
+    <div class="row">
+      
+      <!-- Informacioni i kontaktit -->
+      <div class="col-md-5 mb-4">
+  <div class="contact-info">
+    <p><i class="bi bi-geo-alt-fill icon-gold"></i> 
+      <span data-sq="Adresa: Rruga Ukë Bytyqi, Prishtinë"
+            data-en="Address: Ukë Bytyqi Street, Prishtina"
+            data-de="Adresse: Ukë Bytyqi Straße, Prishtina">
+        Adresa: Rruga Ukë Bytyqi, Prishtinë
+      </span>
+    </p>
+    <p><i class="bi bi-telephone-fill icon-gold"></i> Tel: +383 44 614 940</p>
+    <p><i class="bi bi-envelope-fill icon-gold"></i> Email: 
+      <a href="mailto:tasip.baxhaku@baxhakuing.com">tasip.baxhaku@baxhakuing.com</a>
+    </p>
+    <p><i class="bi bi-globe2 icon-gold"></i> Website: 
+      <a href="https://www.baxhakuing.com" target="_blank">www.baxhakuing.com</a>
+    </p>
+    <p><i class="bi bi-clock-fill icon-gold"></i> 
+      <span data-sq="Orari: Hënë–Shtunë: 8:30 – 17:30"
+            data-en="Hours: Mon–Sat: 8:30 AM – 5:30 PM"
+            data-de="Öffnungszeiten: Mo–Sa: 8:30 – 17:30 Uhr">
+        Orari: Hënë–Shtunë: 8:30 – 17:30
+      </span>
+    </p>
+  </div>
+</div>
 
-	function toggleLang() {
-	  currentLang = currentLang === 'sq' ? 'en' : 'sq';
-	  
-	  // Update flag and label
-	  document.getElementById('langFlag').textContent = currentLang === 'sq' ? '🇦🇱' : '🇬🇧';
-	  document.getElementById('langLabel').textContent = currentLang === 'sq' ? 'SQ' : 'EN';
-	  
-	  // Swap text for all elements with data attributes
-	  document.querySelectorAll('[data-en]').forEach(el => {
-		el.textContent = el.getAttribute(`data-${currentLang}`);
-	  });
-	}
 
-	// Initialize texts on first load
-	document.addEventListener('DOMContentLoaded', () => {
-	  // Set texts according to default language
-	  document.querySelectorAll('[data-en]').forEach(el => {
-		el.textContent = el.getAttribute(`data-${currentLang}`);
-	  });
-	  document.getElementById('langFlag').textContent = '🇬🇧';
-	  document.getElementById('langLabel').textContent = 'EN';
-	});
 
-    /* ---------------------------
-       EmailJS configuration
-       -> Replace the placeholders below with your EmailJS values:
-         - YOUR_SERVICE_ID
-         - YOUR_TEMPLATE_ID
-         - YOUR_PUBLIC_KEY (User ID)
-       In EmailJS template, use template variables:
-         from_name, from_email, subject, message, to_email
-    ----------------------------*/
-    (function(){
-      // NOTE: replace the string below with your EmailJS public key (user id)
-      const EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';
-      if (emailjs && typeof emailjs.init === 'function') {
-        emailjs.init(EMAILJS_PUBLIC_KEY);
+      <!-- Forma e kontaktit -->
+	<div class="col-md-7">
+  <form id="contactForm" class="contact-form p-4 rounded shadow-sm bg-white">
+    
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="name" placeholder="Emri" required>
+      <label for="name" 
+             data-sq="Emri" 
+             data-en="Name" 
+             data-de="Name">
+        Emri
+      </label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="email" class="form-control" id="email" placeholder="Email" required>
+      <label for="email" 
+             data-sq="Email" 
+             data-en="Email" 
+             data-de="E-Mail">
+        Email
+      </label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <input type="text" class="form-control" id="subject" placeholder="Subjekti" required>
+      <label for="subject" 
+             data-sq="Subjekti" 
+             data-en="Subject" 
+             data-de="Betreff">
+        Subjekti
+      </label>
+    </div>
+
+    <div class="form-floating mb-3">
+      <textarea class="form-control" id="message" placeholder="Mesazhi" style="height: 140px;" required></textarea>
+      <label for="message" 
+             data-sq="Mesazhi" 
+             data-en="Message" 
+             data-de="Nachricht">
+        Mesazhi
+      </label>
+    </div>
+
+    <button type="submit" class="btn btn-modern w-100 py-2"
+            data-sq="Dërgo"
+            data-en="Send"
+            data-de="Senden">
+      Dërgo
+    </button>
+
+    <div id="formMessage" class="mt-3 text-center"></div>
+  </form>
+</div>
+
+
+
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-3" style="background: #0b1b2b; color: #fff;">
+  <div class="container text-center">
+    <hr style="border-top: 2px solid #FFD700; margin: 1rem auto; width: 60%;">
+    <p style="margin-bottom: 0.5rem; color: #FFD700;" 
+       data-sq="© 2025 BaxhakuING sh.p.k. – Ekspertiza Teknike • Projekte Sinjalizimi • Vlerësim Dëmesh"
+       data-en="© 2025 BaxhakuING sh.p.k. – Technical Expertise • Signaling Projects • Damage Assessment"
+       data-de="© 2025 BaxhakuING sh.p.k. – Technische Expertise • Signalisierungsprojekte • Schadensbewertung">
+      © 2025 BaxhakuING sh.p.k. – Ekspertiza Teknike • Projekte Sinjalizimi • Vlerësim Dëmesh
+    </p>
+    <p style="margin-top: 0.3rem; color: #fff;" 
+       data-sq="Cilësi e qëndrueshme, standarde të respektuara"
+       data-en="Sustainable quality, standards respected"
+       data-de="Nachhaltige Qualität, eingehaltene Standards">
+       Cilësi e qëndrueshme, standarde të respektuara
+    </p>
+  </div>
+</footer>
+
+
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Language toggle JS -->
+<script>
+let currentLang = 'sq'; // default
+
+function setLang(lang) {
+  currentLang = lang;
+  const flagMap = { sq: 'flags/al.png', en: 'flags/gb.png', de: 'flags/de.png' };
+  const labelMap = { sq: 'SQ', en: 'EN', de: 'DE' };
+
+  document.getElementById('currentFlag').src = flagMap[lang];
+  document.getElementById('currentLangLabel').textContent = labelMap[lang];
+
+  // Ndryshon tekstin në faqe
+  document.querySelectorAll('[data-en]').forEach(el => {
+    el.textContent = el.getAttribute(`data-${lang}`) || el.textContent;
+  });
+}
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const items = document.querySelectorAll(".timeline-item");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target); // opsionale: animacioni vetëm një herë
       }
-    })();
-
-    // handle form submit
-    document.getElementById('contact-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const sendBtn = document.getElementById('sendBtn');
-      const alertBox = document.getElementById('form-alert');
-
-      sendBtn.disabled = true;
-      sendBtn.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Sending...';
-
-      // Replace with your service and template IDs
-      const SERVICE_ID = 'YOUR_SERVICE_ID';
-      const TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-
-      // send using emailjs
-      emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, this)
-        .then(function(response) {
-          alertBox.style.display = 'block';
-          alertBox.className = 'alert alert-success';
-          alertBox.textContent = (currentLang === 'sq') ? 'Mesazhi u dërgua me sukses. Faleminderit!' : 'Message sent successfully. Thank you!';
-          sendBtn.disabled = false;
-          sendBtn.innerHTML = (currentLang === 'sq') ? 'Dërgo Mesazh' : 'Send Message';
-          document.getElementById('contact-form').reset();
-        }, function(error) {
-          alertBox.style.display = 'block';
-          alertBox.className = 'alert alert-danger';
-          alertBox.textContent = (currentLang === 'sq') ? 'Ndodhi një gabim gjatë dërgimit. Ju lutemi provoni sërish.' : 'An error occurred while sending. Please try again.';
-          sendBtn.disabled = false;
-          sendBtn.innerHTML = (currentLang === 'sq') ? 'Dërgo Mesazh' : 'Send Message';
-          console.error('EmailJS error:', error);
-        });
     });
-  </script>
+  }, { threshold: 0.2 });
 
-  <!-- Usage notes (do not remove): 
-       1) In EmailJS dashboard create a Service (service_xxx) and Template (template_xxx).
-       2) Edit the template to include variables: from_name, from_email, subject, message, to_email.
-       3) Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY above with real values.
-       4) Optionally set a static recipient inside the EmailJS template to tasip.baxhaku@baxhakuing.com,
-          or leave to_email field dynamic (we included it as hidden input already).
-  -->
+  items.forEach(item => observer.observe(item));
+});
+
+
+
+// initialize on page load
+document.addEventListener('DOMContentLoaded', () => {
+  setLang(currentLang);
+});
+
+// Contact form simulation
+document.getElementById('contactForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const alertBox = document.getElementById('alertBox');
+  alertBox.textContent = currentLang==='sq' ? 'Mesazhi u dërgua me sukses. Faleminderit!' :
+                     currentLang==='en' ? 'Message sent successfully. Thank you!' :
+                     'Nachricht erfolgreich gesendet. Vielen Dank!';
+});
+</script>
 
 </body>
 </html>
